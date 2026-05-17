@@ -24,10 +24,10 @@ jobs:
       - name: Build
         run: dotnet build -c Release
 
-      - name: Find DLL
-        id: find_dll
-        run: |
-          echo "DLL_PATH=$(dir /s /b *.dll | findstr Release)" >> $env:GITHUB_ENV
+      - name: Upload Release
+        uses: softprops/action-gh-release@v2
+        with:
+            files: bin/Release/**/WobblyMenu.dll
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
