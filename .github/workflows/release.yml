@@ -1,4 +1,4 @@
-name: Build and Release DLL
+name: Release Existing DLL
 
 on:
   workflow_dispatch:
@@ -10,29 +10,23 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+
 jobs:
-  build:
+  release:
     runs-on: windows-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Restore
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build -c Release
-
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-            tag_name: ${{ github.event.inputs.tag || github.ref_name }}
-            files: bin/Release/netstandard2.0/WobblyMenu.dll
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          files: bin/Release/net10.0/WobblyMenu.dll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          name: Build and Release DLL

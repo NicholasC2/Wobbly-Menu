@@ -1,6 +1,8 @@
+libs/
 bin/
 obj/
 
+*.dll
 *.exe
 *.pdb
 *.user
