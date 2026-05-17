@@ -1,14 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="Local.props" Condition="Exists('Local.props')" />
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-
-    <!-- IMPORTANT: keep old C# compatibility for Unity/BepInEx -->
     <LangVersion>7.3</LangVersion>
-
     <Nullable>disable</Nullable>
-
-    <!-- IMPORTANT: prevents global using errors -->
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
@@ -16,75 +13,13 @@
     <Reference Include="BepInEx">
       <HintPath>libs/BepInEx.dll</HintPath>
     </Reference>
-
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>libs/UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine">
-      <HintPath>libs/UnityEngine.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>libs/UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>libs/UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Assembly-CSharp">
-      <HintPath>libs/Assembly-CSharp.dll</HintPath>
-    </Reference>
-
-    <Reference Include="HawkNetworking">
-      <HintPath>libs/HawkNetworking.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Rewired_Core">
-      <HintPath>libs/Rewired_Core.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Utils">
-      <HintPath>libs/Utils.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Game">
-      <HintPath>libs/Game.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Space">
-      <HintPath>libs/Space.dll</HintPath>
-    </Reference>
-    
-    <Reference Include="Unity.ResourceManager">
-      <HintPath>libs/Unity.ResourceManager.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Unity.Addressables">
-      <HintPath>libs/Unity.Addressables.dll</HintPath>
-    </Reference>
-
-    <Reference Include="ModWobblyLife">
-      <HintPath>libs/ModWobblyLife.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UMod-Interface">
-      <HintPath>libs/UMod-Interface.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>libs/UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-
-    <Reference Include="0Harmony">
-      <HintPath>libs/0Harmony.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <Target Name="CopyToBepInEx" AfterTargets="Build">
+    <MakeDir Directories="$(WobblyLifeModsDir)" />
+    
     <Copy SourceFiles="$(TargetPath)"
-          DestinationFolder="C:\Program Files (x86)\Steam\steamapps\common\Wobbly Life\BepInEx\plugins\WobblyMenu\" />
+          DestinationFolder="$(WobblyLifeModsDir)" />
   </Target>
 
 </Project>
