@@ -9,7 +9,7 @@ using WobblyMenu.UI;
 
 namespace WobblyMenu
 {
-    [BepInPlugin("com.wobblymenu.plugin", "Wobbly Menu", "1.0.1")]
+    [BepInPlugin("com.wobblymenu.plugin", "Wobbly Menu", "1.0.0")]
     public class Plugin : BaseUnityPlugin
     {
         private Rect spawnMenuWindowRect;
