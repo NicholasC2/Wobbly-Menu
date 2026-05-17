@@ -28,14 +28,6 @@
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>libs/UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
-    
-    <Reference Include="UnityExplorer">
-      <HintPath>libs/UnityExplorer.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UniverseLib">
-      <HintPath>libs/UniverseLib.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <Target Name="CopyToBepInEx" AfterTargets="Build">
