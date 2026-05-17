@@ -2,6 +2,10 @@ name: Build and Release DLL
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.0.3)"
+        required: true
   push:
     tags:
       - "v*"
@@ -33,7 +37,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            **/bin/Release/**/*.dll
+            tag_name: ${{ github.event.inputs.tag }}
+            files: bin/Release/**/*.dll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
