@@ -13,6 +13,29 @@
     <Reference Include="BepInEx">
       <HintPath>libs/BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>libs/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="HawkNetworking">
+      <HintPath>libs/HawkNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>libs/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>libs/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>libs/UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    
+    <Reference Include="UnityExplorer">
+      <HintPath>libs/UnityExplorer.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UniverseLib">
+      <HintPath>libs/UniverseLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <Target Name="CopyToBepInEx" AfterTargets="Build">

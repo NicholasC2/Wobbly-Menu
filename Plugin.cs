@@ -1,22 +1,14 @@
 ﻿using BepInEx;
-using HawkNetworking;
+using UnityEngine;
 
-namespace WobblyAC
+[BepInPlugin("com.yourname.wobblyac", "Wobbly AC", "1.0")]
+public class WobblyAC : BaseUnityPlugin
 {
-    [BepInPlugin("com.wobblyac.plugin", "Wobbly AC", "1.0.0")]
-    public class Plugin : BaseUnityPlugin
+    void Start()
     {
-        private bool isMenuVisible = false;
+    }
 
-        void Awake()
-        {
-
-        }
-
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Insert))
-                isMenuVisible = !isMenuVisible;
-        }
+    void Update()
+    {
     }
 }
